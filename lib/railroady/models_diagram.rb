@@ -269,7 +269,7 @@ class ModelsDiagram < AppDiagram
   def process_association(class_name, assoc)
     warn "- Processing model association #{assoc.name}" if @options.verbose
     # Skip "belongs_to" associations
-    macro = assoc.methods.to_s
+    macro = assoc.macro.to_s
     return if %w[belongs_to referenced_in].include?(macro) && !@options.show_belongs_to
 
     # Skip "through" associations
